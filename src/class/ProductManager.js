@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 class ProductManager {
-  file = __dirname + '/files/Products.json'
+  file = __dirname + '/files/products.json'
 
   async loadItems() {
     if (fs.existSync(this.file)) {

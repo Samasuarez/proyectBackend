@@ -1,92 +1,94 @@
-[
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  },
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  },
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  },
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  },
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  },
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  },
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  },
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  },
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  },
-  {
-    "id": 10,
-    "title ": "El jardin de las delicias",
-    "description": "Pinturas",
-    "price": 1200,
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
-    "Consigna": "Comprar",
-    "stock": 80
-  }
-]
+{
+  "productos": [
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    },
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    },
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    },
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    },
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    },
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    },
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    },
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    },
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    },
+    {
+      "id": 10,
+      "title ": "El jardin de las delicias",
+      "description": "Pinturas",
+      "price": 1200,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU",
+      "Consigna": "Comprar",
+      "stock": 80
+    }
+  ]
+}

@@ -1,57 +1,36 @@
 const express = require("express");
+const CartRouter = require("./routes/cart.router");
+const ProductRouter = require("./routes/products.router");
 
 const port = 8080;
-const users = [];
-let products = [];
 
 const app = express();
 
 app.use(express.json());
+app.use("/products", ProductRouter);
+app.use("/cart", CartRouter);
 
-app.get("/users", (req, res) => {
-  res.json({ message: users });
-});
+app.use(express.static(__dirname + "/public"));
 
-app.get("/users/:id", (req, res) => {
-  const { id } = req.params;
+// app.get("/users", (req, res) => {
+//   res.json({ message: users });
+// });
 
-  const user = users[id - 1];
+// app.get("/users/:id", (req, res) => {
+//   const { id } = req.params;
 
-  res.send({ message: user });
-});
+//   const user = users[id - 1];
 
-app.post("/users", (req, res) => {
-  const { name } = req.body;
+//   res.send({ message: user });
+// });
 
-  users.push(name);
+// app.post("/users", (req, res) => {
+//   const { name } = req.body;
 
-  res.status(201).json({ message: "Usuario creado" });
-});
+//   users.push(name);
 
-app.get("/products", (req, res) => {
-  res.json({ message: products });
-});
-
-app.post("/products", (req, res) => {
-  const { name, price } = req.body;
-
-  const newProductInfo = {
-    name,
-    price,
-  };
-
-  products.push(newProductInfo);
-
-  res.status(201).json({ message: "Product creado" });
-});
-
-app.delete("/products/:id", (req, res) => {
-  const { id } = req.params;
-  products.splice(id - 1, 1);
-
-  products = products.filter((product, index) => index !== id);
-});
-
+//   res.status(201).json({ message: "Usuario creado" });
+// });
 app.listen(port, () => {
   console.log(`Server running at port ${port}`);
 });
