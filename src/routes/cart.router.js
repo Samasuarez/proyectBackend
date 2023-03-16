@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const cart = []
+const carts = []
 router.get("/", (req, res) => {
     console.log('carrito')
 });

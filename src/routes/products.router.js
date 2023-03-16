@@ -1,17 +1,45 @@
 const { Router } = require("express");
+const dataProducts = require("../files/products.json");
+// const dataCart = require("../files/cart.json");
+
 const router = Router();
-let products = [];
+
+
 router.get("/", (req, res) => {
-  res.json({ message: products });
+  res.json(dataProducts);
 });
+
+router.get("/:pid", (req, res) => {
+  const { id } = req.params;
+  const producto = dataProducts[id - 1];
+  res.send({ message: producto });
+});
+
+// router.get("/products/:pid", (req, res)=> {
+//   const id = parseInt(req.params.id);
+//   const producto = dataProducts.find((p) => p.id === id);
+
+//   if (producto) {
+//     res.json(producto);
+//   } else {
+//     res.status(404).json({ mensaje: "Producto no encontrado" });
+//   }
+// })
+
 router.post("/", (req, res) => {
-  const { name, price } = req.body;
+  const { title, price } = req.body;
 
   const newProductInfo = {
-    name,
+    id,
+    title,
+    description,
+    code,
     price,
-  };
-  products.push(newProductInfo);
+    Status,
+    stock,
+    category
+  }
+  dataProducts.push(newProductInfo);
   res.status(201).json({ message: "Product creado" });
 });
 router.delete("/products/:id", (req, res) => {
