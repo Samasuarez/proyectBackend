@@ -1,50 +1,111 @@
 const { Router } = require("express");
-const dataProducts = require("../files/products.json");
-
+const productManager = require("../class/ProductManager");
 const router = Router();
+const methodOverride = require("method-override");
 
-router.get("/", (req, res) => {
-  res.json(dataProducts);
-});
+module.exports = (io) => {
+  router.use(methodOverride("_method"));
 
-router.get("/:pid", (req, res) => {
-  const { id } = req.params;
-  console.log("id", id);
-  const producto = dataProducts[id - 1];
-  res.send({ message: producto });
-});
+  //eliminar producto en tiempo real desde el body
+  router.delete("/", (req, res) => {
+    const productId = req.body.id;
+    try {
+      productManager.deleteProduct(parseInt(productId));
+      res.status(200).redirect("back");
+      io.emit("productos", productManager.getProducts());
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .send({ error: `Error al eliminar el producto con id ${productId}` });
+    }
+  });
 
-router.get("/products/:pid", (req, res) => {
-  const id = parseInt(req.params.id);
-  const producto = dataProducts.find((p) => p.id === id);
+  // Permite crar un producto desde el body, siempre y cuando sea un objeto con todas sus propiedaddes adecuadas
+  router.post("/", (req, res) => {
+    const { nombre, price, descripcion, stock, code, category, img } = req.body;
+    const status = req.body.status === "on";
 
-  if (producto) {
-    res.json(producto);
-  } else {
-    res.status(404).json({ mensaje: "Producto no encontrado" });
-  }
-});
+    const product = {
+      nombre: nombre,
+      descripcion: descripcion,
+      price: parseInt(price),
+      stock: parseInt(stock),
+      code: code,
+      category: category,
+      status: status,
+      img: img,
+    };
 
-router.post("/", (req, res) => {
-  const { id, title, description, code, price, Status, stock, category } =
-    req.body;
+    try {
+      productManager.addProduct(product);
+      io.emit("productos", productManager.getProducts());
+      res.status(201).redirect("back");
+    } catch (error) {
+      console.error(error);
+      res
+        .status(400)
+        .send({
+          error: `error al crear el producto, verifica que sea un objeto y cuente con las claves y valores correctos`,
+        });
+    }
+  });
 
-  const newProductInfo = {
-    id,
-    title,
-    description,
-    code,
-    price,
-    Status,
-    stock,
-    category,
-  };
-  dataProducts.productos.push(newProductInfo);
-  res.status(201).json({ message: "Product creado" });
-});
-router.delete("/products/:id", (req, res) => {
-  const { id } = req.params;
-  products.splice(id - 1, 1);
-  products = products.filter((product, index) => index !== id);
-});
-module.exports = router;
+  // Muestra todos los productos existentes en el dom con handlebars
+  router.get("/", (req, res) => {
+    const limite = parseInt(req.query.limit);
+    try {
+      const products = productManager.getProducts(limite);
+      res.status(200).render("index.handlebars", { products });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: `error al cargar los productos` });
+    }
+  });
+
+  //Muestra los productos en tiempo real
+  router.get("/realTimeProducts", (req, res) => {
+    const productsLimite = parseInt(req.query.limit);
+    try {
+      const productos = productManager.getProducts(productsLimite);
+      // Envía los productos a los clientes conectados
+      io.emit("productos", productos);
+      res.status(200).render("realTimeProducts.handlebars", { productos });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: `error al cargar los productos` });
+    }
+  });
+
+  // Muestra un producto en particular
+  router.get("/:pid", (req, res) => {
+    const productId = parseInt(req.params.pid);
+    try {
+      const product = productManager.getProductById(productId);
+      res.status(200).send({ product });
+    } catch (error) {
+      console.error(error);
+      res.status(404).send({ message: `producto ${productId} no encontrado` });
+    }
+  });
+
+  // Actualiza una o mas propiedades en especifico de un objeto producto
+  router.patch("/:pid", (req, res) => {
+    const productId = parseInt(req.params.pid);
+    const updates = req.body;
+    try {
+      const updateProduct = productManager.updateProduct(productId, updates);
+      io.emit("productos", productManager.getProducts());
+      res.status(200).send({ updateProduct });
+    } catch (error) {
+      console.error(error);
+      res
+        .status(400)
+        .send({
+          message: `error al actualizar ru producto, verifica los valores enviados por body`,
+        });
+    }
+  });
+
+  return router;
+};

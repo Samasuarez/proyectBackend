@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    padding: 1rem;
+    font-family:sans-serif;
+  }
+  h2{
+    text-align: center;
+  }
+  div.product-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  .productItem{
+    background-color: red;
+    border-radius: 1rem;
+    text-align: center;
+    padding: 1rem;
+  }

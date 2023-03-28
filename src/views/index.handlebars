@@ -1,1 +1,11 @@
-<h2>hola</h2>
+<h2>Productos</h2>
+<div class="product-list">
+  {{#each products}}
+    <div class="productItem">
+      <h3>{{this.id}}</h3>
+      {{!-- <img src={{this.img}} alt=""> --}}
+      <p>{{this.description}}</p>
+      <p>${{this.price}}</p>
+    </div>
+  {{/each}}
+</div>
