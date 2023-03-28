@@ -23,9 +23,8 @@ class ProductManager {
       throw new Error(error.details[0].message);
     }
 
-    const files = fs.readFileSync(this.path);
-    const products = JSON.parse(files);
-
+    const data = fs.readFile(this.path);
+    const products = JSON.parse(data);
     const id = products.length + 1;
     const newProduct = product;
     newProduct["id"] = id;
@@ -40,12 +39,9 @@ class ProductManager {
     }
   }
 
-  /**
-   * metodo que muestra todos los productos  que existen
-   */
   getProducts(limit) {
     try {
-      console.log('limit', limit);
+      //  console.log('limit', limit);
       const products = JSON.parse(fs.readFileSync(this.path, "utf-8"));
       // this.path = this.getProducts()
       // console.log(products)
@@ -61,9 +57,6 @@ class ProductManager {
     }
   }
 
-  /**
-   * metodo que muestra un producto segun el id definido en la instancia
-   */
   getProductById(id) {
     try {
       const producto = JSON.parse(fs.readFileSync(this.path, "utf8"));
@@ -76,14 +69,11 @@ class ProductManager {
     }
   }
 
-  /**
-   * metodo que actualiza un valor de un producto ej: precio,     descripcion, stock
-   **/
   updateProduct(id, updates) {
     // console.log(updates)
     try {
-      const files = fs.readFileSync(this.path, "utf-8");
-      const productos = JSON.parse(files);
+      const file = fs.readFile(this.path, "utf-8");
+      const productos = JSON.parse(file);
       const index = productos.findIndex((producto) => producto.id === id);
 
       if (index === -1) {
@@ -105,9 +95,6 @@ class ProductManager {
     }
   }
 
-  /**
-   * metodo que elimina un prodcuto
-   */
   deleteProduct(id) {
     try {
       const productos = JSON.parse(fs.readFileSync(this.path, "utf-8"));
@@ -124,9 +111,6 @@ class ProductManager {
     }
   }
 
-  /**
-   * metodo que elimina todo el archivo de productos
-   */
   deleteAllProducts() {
     try {
       fs.unlinkSync(this.path);
@@ -138,7 +122,5 @@ class ProductManager {
   }
 }
 
-//instancia de la clase
-
 const productManager = new ProductManager("../files/products.json");
-module.exports = ProductManager;
+module.exports = productManager;
