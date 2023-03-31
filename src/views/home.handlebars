@@ -2,10 +2,10 @@
 <div class="product-list">
   {{#each products}}
     <div class="productItem">
-      <h3>{{this.id}}</h3>
-      {{!-- <img src={{this.img}} alt=""> --}}
+      <h3>{{this.title}}</h3>
+      <img src={{this.price}} alt="">
       <p>{{this.description}}</p>
-      <p>${{this.price}}</p>
+      <p>{{this.stock}}</p>
     </div>
   {{/each}}
 </div>

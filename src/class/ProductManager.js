@@ -9,10 +9,10 @@ class ProductManager {
   addProduct(product) {
     console.log(product);
     const schema = Joi.object({
-      nombre: Joi.string().required(),
+      title: Joi.string().required(),
       descripcion: Joi.string().required(),
       price: Joi.number().min(0).required(),
-      img: Joi.string().optional(),
+      thumbnail: Joi.string().optional(),
       code: Joi.string().required(),
       category: Joi.string().required(),
       status: Joi.boolean().required(),
@@ -23,7 +23,7 @@ class ProductManager {
       throw new Error(error.details[0].message);
     }
 
-    const data = fs.readFile(this.path);
+    const data = fs.readFileSync(this.path);
     const products = JSON.parse(data);
     const id = products.length + 1;
     const newProduct = product;
@@ -121,6 +121,6 @@ class ProductManager {
     }
   }
 }
-
-const productManager = new ProductManager("../files/products.json");
-module.exports = productManager;
+// const ruta = "../files/products.json"
+// const productManager = new ProductManager(ruta);
+module.exports = ProductManager;

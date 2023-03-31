@@ -1,29 +1,26 @@
 const { Router } = require("express");
-const productManager = require("../class/productManager");
+const ProductManager = require("../class/ProductManager");
 const router = Router();
-const methodOverride = require("method-override");
-
-const io = require("socket.io");
-module.exports = (io) => {
-  router.use(methodOverride("_method"));
-
-  router.delete("/", (req, res) => {
-    const productId = req.body.id;
+const path = require('path')
+const productManager= new ProductManager(
+  path.join(__dirname,  '../files/products.json')
+)
+  router.delete("/:pid", (req, res) => {
+    const pid = parseInt (req.params.pid);
     try {
-      productManager.deleteProduct(parseInt(productId));
-      res.status(200).redirect("back");
-      io.emit("productos", productManager.getProducts());
+      productManager.deleteProduct(pid);
+      res.json("articulo eliminado")
     } catch (error) {
       console.error(error);
       res
         .status(500)
-        .send({ error: `Error al eliminar el producto con id ${productId}` });
+        .send({ error: `Error al eliminar el producto con id ${pid}` });
     }
   });
 
   router.post("/", (req, res) => {
-    const { id, title, price, description, stock, code, category } = req.body;
-    const status = req.body.status === "on";
+    const { id, title, price, description, stock, code, category,status,thumbnail } = req.body;
+    // const status = req.body.status === "on";
 
     const product = {
       id: id,
@@ -33,14 +30,14 @@ module.exports = (io) => {
       stock: parseInt(stock),
       code: code,
       category: category,
-      status: status,
-      img: img,
+      thumbnail: thumbnail,
+      status: status
     };
 
     try {
       productManager.addProduct(product);
-      io.emit("productos", productManager.getProducts());
-      res.status(201).redirect("back");
+      // io.emit("productos", productManager.getProducts());
+      // res.status(201).redirect("back");
     } catch (error) {
       console.error(error);
       res.status(400).send({
@@ -52,21 +49,22 @@ module.exports = (io) => {
   router.get("/", (req, res) => {
     const limite = parseInt(req.query.limit);
     try {
+
       const products = productManager.getProducts(limite);
-      res.status(200).render("index.handlebars", { products });
+      res.status(200).render("home.handlebars", { products });
     } catch (error) {
       console.error(error);
       res.status(500).send({ error: `error al cargar los productos` });
     }
   });
 
-  router.get("/realTimeProducts", (req, res) => {
+  router.get("/realtimeproducts", (req, res) => {
     const productsLimite = parseInt(req.query.limit);
     try {
       const productos = productManager.getProducts(productsLimite);
 
-      io.emit("productos", productos);
-      res.status(200).render("realTimeProducts.handlebars", { productos });
+      // io.emit("productos", productos);
+      res.status(200).render("realTimeProd.handlebars", { productos });
     } catch (error) {
       console.error(error);
       res.status(500).send({ error: `error al cargar los productos` });
@@ -99,5 +97,5 @@ module.exports = (io) => {
     }
   });
 
-  return router;
-};
+ module.exports = router
+
