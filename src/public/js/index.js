@@ -4,7 +4,7 @@ const productsContainer = document.getElementById("products");
 socket.on("realtimeproducts", (productos) => {
   const { products } = productos;
   productsContainer.innerHTML = "";
-  products.forEach((prod) => productsContainer.append(productsContainer(prod)))
+  products.forEach((prod) => productsContainer.append(productsContainer (prod)))
 });
  const productContainer = (prod)=>{
     const div = document.createElement('div')

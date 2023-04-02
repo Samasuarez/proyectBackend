@@ -3,7 +3,7 @@ const ProductManager = require("../class/ProductManager");
 const router = Router();
 const path = require('path')
 const productManager= new ProductManager(
-  path.join(__dirname,  '../files/products.json')
+  path.join(__dirname  ,'../files/products.json')
 )
   router.delete("/:pid", (req, res) => {
     const pid = parseInt (req.params.pid);
@@ -51,7 +51,7 @@ const productManager= new ProductManager(
     try {
 
       const products = productManager.getProducts(limite);
-      res.status(200).render("home.handlebars", { products });
+      res.status(200).render("realTimeProd.handlebars", { products });
     } catch (error) {
       console.error(error);
       res.status(500).send({ error: `error al cargar los productos` });
@@ -64,7 +64,7 @@ const productManager= new ProductManager(
       const productos = productManager.getProducts(productsLimite);
 
       // io.emit("productos", productos);
-      res.status(200).render("realTimeProd.handlebars", { productos });
+      res.status(200).render("realTimeProd.handlebars");
     } catch (error) {
       console.error(error);
       res.status(500).send({ error: `error al cargar los productos` });
