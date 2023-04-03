@@ -51,25 +51,26 @@ const productManager= new ProductManager(
     try {
 
       const products = productManager.getProducts(limite);
-      res.status(200).render("realTimeProd.handlebars", { products });
+      res.status(200).json(products)
+      // res.status(200).render("realTimeProd.handlebars", { products });
     } catch (error) {
       console.error(error);
       res.status(500).send({ error: `error al cargar los productos` });
     }
   });
 
-  router.get("/realtimeproducts", (req, res) => {
-    const productsLimite = parseInt(req.query.limit);
-    try {
-      const productos = productManager.getProducts(productsLimite);
+  // router.get("/realtimeproducts", (req, res) => {
+  //   const productsLimite = parseInt(req.query.limit);
+  //   try {
+  //     const productos = productManager.getProducts(productsLimite);
 
-      // io.emit("productos", productos);
-      res.status(200).render("realTimeProd.handlebars");
-    } catch (error) {
-      console.error(error);
-      res.status(500).send({ error: `error al cargar los productos` });
-    }
-  });
+  //     // io.emit("productos", productos);
+  //     res.status(200).render("realTimeProd.handlebars", {productos});
+  //   } catch (error) {
+  //     console.error(error);
+  //     res.status(500).send({ error: `error al cargar los productos` });
+  //   }
+  // });
 
   router.get("/:pid", (req, res) => {
     const productId = parseInt(req.params.pid);
