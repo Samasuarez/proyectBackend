@@ -1,5 +1,6 @@
-{
-  "productos": [
+
+[
+  
     {
       "id": 1,
       "title ": "El jardin de las delicias",
@@ -122,4 +123,4 @@
       "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8ydT6EyXq4YJNNIIQwhaYcCWEJV4y0TL_drf3scoWxCRu9L3NaUC8PtTqU_R4kFCdAo&usqp=CAU"
     }
   ]
-}
+
